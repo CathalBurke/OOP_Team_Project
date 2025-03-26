@@ -12,8 +12,8 @@ public class DatabaseConnection {
     public static Connection getConnection() {
         try {
             return DriverManager.getConnection(URL, USER, PASSWORD);
-        } catch (SQLException e) {
-            throw new RuntimeException(e); 
+        } catch (SQLException e) { //test foor github
+            throw new RuntimeException(e);
         }
     }
 
