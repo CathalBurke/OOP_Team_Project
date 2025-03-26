@@ -35,6 +35,6 @@ public class Login {
         System.out.println("Enter your password: ");
         Password = scanner.nextLine();
 
-        scanner.close(); 
+        scanner.close();
     }
 }
