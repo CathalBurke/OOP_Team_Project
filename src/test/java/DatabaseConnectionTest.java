@@ -1,3 +1,5 @@
+package ie.atu.week6;
+
 import ie.atu.week6.DatabaseConnection;
 import ie.atu.week6.Login;
 import org.junit.jupiter.api.Test;
@@ -40,7 +42,8 @@ public class DatabaseConnectionTest {
     @Test
     void testProductSearchByName() {
         try (Connection conn = DatabaseConnection.getConnection()) {
-            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM products WHERE name = ?");
+            // Use the correct column name "Product_name"
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM products WHERE Product_name = ?");
             stmt.setString(1, "Black T-shirt");
             ResultSet rs = stmt.executeQuery();
             assertTrue(rs.next(), "Product 'Black T-shirt' should exist in products table");
@@ -52,7 +55,8 @@ public class DatabaseConnectionTest {
     @Test
     void testCategoryLookup() {
         try (Connection conn = DatabaseConnection.getConnection()) {
-            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM category WHERE name = ?");
+            // Use the correct column name "Category_name"
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM category WHERE Category_name = ?");
             stmt.setString(1, "Electronics");
             ResultSet rs = stmt.executeQuery();
             assertTrue(rs.next(), "Category 'Electronics' should exist");
