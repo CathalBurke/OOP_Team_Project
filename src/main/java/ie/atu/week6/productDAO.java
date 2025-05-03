@@ -36,4 +36,24 @@ public class productDAO {
             System.out.println("Error inserting product" + e.getMessage());
         }
     }
+
+    public void deleteProduct(int productID){
+        String sql = "DELETE FROM products WHERE product_id = ?)";
+        try(Connection conn = DatabaseConnection.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql)){
+            stmt.setInt(1, productID);
+
+            int rows = stmt.executeUpdate();
+            if(rows < 0){
+                System.out.println("Product ID: " + productID + "successfully deleted.");
+            }
+            else{
+                System.out.println("Product not found:" + productID);
+            }
+        }
+        catch(SQLException e){
+            System.out.println("Error with deletion" + e.getMessage());
+        }
+    }
+
 }
