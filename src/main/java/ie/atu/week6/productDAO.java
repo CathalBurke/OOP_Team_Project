@@ -44,7 +44,7 @@ public class productDAO {
             stmt.setInt(1, productID);
 
             int rows = stmt.executeUpdate();
-            if(rows < 0){
+            if(rows > 0){
                 System.out.println("Product ID: " + productID + "successfully deleted.");
             }
             else{
