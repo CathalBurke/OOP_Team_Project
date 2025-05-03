@@ -9,7 +9,7 @@ public class loginDAO {
         String sql = "INSERT INTO login (UserID, First_name, Last_name, Email, Username, Password) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, UserID));
+            stmt.setInt(1, UserID);
             stmt.setString(2, First_name);
             stmt.setString(3, Last_name);
             stmt.setString(4, Email);
