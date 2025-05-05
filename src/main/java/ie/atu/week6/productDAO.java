@@ -38,7 +38,7 @@ public class productDAO {
     }
 
     public void deleteProduct(int productID){
-        String sql = "DELETE FROM products WHERE product_id = ?)";
+        String sql = "DELETE FROM products WHERE product_id = ?";
         try(Connection conn = DatabaseConnection.getConnection();
         PreparedStatement stmt = conn.prepareStatement(sql)){
             stmt.setInt(1, productID);
