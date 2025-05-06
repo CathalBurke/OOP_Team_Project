@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ordersDAO {
     public void insertOrder(int Orders, int UserID, double Total_Amount, String Order_Date){
-        String sql = "INSERT INTO orders (Orders,UserID,Total_Amount,Order_Date) VALUES (?, ?, ?, ?, ?, ?) ";
+        String sql = "INSERT INTO orders (Orders,UserID,Total_Amount,Order_Date) VALUES (?, ?, ?, ?) ";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 

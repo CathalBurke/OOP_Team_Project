@@ -62,7 +62,11 @@ public class Main {
                     int productId = scan.nextInt();
                     scan.nextLine();
 
-                    cartDAO.addToCart(userId, productId);
+                    System.out.print("Enter quantity: ");
+                    int quantity = scan.nextInt();
+                    scan.nextLine();
+
+                    cartDAO.addtoCart(userId, productId,quantity);
                     System.out.println("Product added to cart.");
                     break;
 
