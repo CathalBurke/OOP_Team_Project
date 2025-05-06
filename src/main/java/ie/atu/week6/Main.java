@@ -42,7 +42,7 @@ public class Main {
                 case 2:
                     List<Product> products = productDAO.selectAllProducts();
                     for (Product p : products) {
-                        System.out.println(p);  // assumes Product has a proper toString()
+                        System.out.println(p);
                     }
                     break;
 
@@ -75,15 +75,17 @@ public class Main {
                     int viewUserId = scan.nextInt();
                     scan.nextLine();
 
-                    List<Product> cartItems = cartDAO.getCartByUserId(viewUserId);
+                    // Get the cart items for the user
+                    List<CartItem> cartItems = cartDAO.getCartByUserId(viewUserId);
                     if (cartItems.isEmpty()) {
                         System.out.println("Cart is empty.");
                     } else {
-                        for (Product item : cartItems) {
-                            System.out.println(item);  // assumes Product has a proper toString()
+                        for (CartItem item : cartItems) {
+                            System.out.println(item);
                         }
                     }
                     break;
+
 
                 case 0:
                     System.out.println("Exiting...");
