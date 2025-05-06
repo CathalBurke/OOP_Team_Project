@@ -13,8 +13,8 @@ public class loginDAO {
             stmt.setString(2, First_name);
             stmt.setString(3, Last_name);
             stmt.setString(4, Email);
-            stmt.setString(5, Username());
-            stmt.setString(6, Password());
+            stmt.setString(5, Username);
+            stmt.setString(6, Password);
             stmt.executeUpdate();
             System.out.println("User added to login details.");
         } catch (SQLException e) {
