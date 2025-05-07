@@ -11,7 +11,51 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         productDAO productDAO = new productDAO();
         cartDAO cartDAO = new cartDAO();
+loginDAO loginDAO = new loginDAO();
+boolean loggedIn = false;
+while(!loggedIn) {
+    System.out.println("Welcome chose an option ");
+    System.out.println("1. Login");
+    System.out.println("2. New user");
+    int option = scan.nextInt();
+    scan.nextLine();
+    if(option == 1) {
+        System.out.println("please log in!");
+        System.out.println("Enter your username:");
+        String username = scan.nextLine();
+        System.out.println("Enter your password:");
+        String password = scan.nextLine();
 
+        loggedIn = loginDAO.validlogin(username, password);
+        if(loggedIn) {
+            System.out.println("Logged in!");
+        }
+        else {
+            System.out.println("Wrong password!");
+        }
+    }
+    else if(option == 2) {
+        System.out.println("Enter user ID");
+        int userID = scan.nextInt();
+        scan.nextLine();
+        System.out.println("Enter first name ");
+        String firstName = scan.nextLine();
+        System.out.println("Enter last name ");
+        String lastName = scan.nextLine();
+        System.out.println("Enter email address");
+        String email = scan.nextLine();
+        System.out.println("Enter your username:");
+        String username = scan.nextLine();
+        System.out.println("Enter your password:");
+        String password = scan.nextLine();
+        loginDAO.insertLogIn(userID, firstName, lastName, email, username, password);
+        System.out.println("User registered successfully. You can now log in.");
+
+    }
+else {
+    System.out.println("Wrong option!");
+    }
+}
         while(true){
             System.out.println("---E-commerce Platform---");
             System.out.println("1. Add a product");
