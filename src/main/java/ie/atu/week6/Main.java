@@ -1,11 +1,10 @@
 package ie.atu.week6;
+
 import ie.atu.week6.productDAO;
 
 import java.util.List;
 import java.util.Scanner;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -14,7 +13,8 @@ public class Main {
         orders_detailsDAO orders_detailsDAO = new orders_detailsDAO();
         ordersDAO ordersDAO = new ordersDAO();
         loginDAO loginDAO = new loginDAO();
-        while(true){
+
+        while (true) {
             System.out.println("---E-commerce Platform---");
             System.out.println("1. Add a product");
             System.out.println("2. View all products");
@@ -27,7 +27,7 @@ public class Main {
             int choice = scan.nextInt();
             scan.nextLine();
 
-            switch(choice){
+            switch (choice) {
                 case 1:
                     System.out.println("Product Name: ");
                     String name = scan.nextLine();
@@ -68,7 +68,7 @@ public class Main {
                     int quantity = scan.nextInt();
                     scan.nextLine();
 
-                    cartDAO.addtoCart(userId, productId,quantity);
+                    cartDAO.addtoCart(userId, productId, quantity);
                     System.out.println("Product added to cart.");
                     break;
 
@@ -77,7 +77,6 @@ public class Main {
                     int viewUserId = scan.nextInt();
                     scan.nextLine();
 
-                    // Get the cart items for the user
                     List<CartItem> cartItems = cartDAO.getCartByUserId(viewUserId);
                     if (cartItems.isEmpty()) {
                         System.out.println("Cart is empty.");
@@ -87,7 +86,6 @@ public class Main {
                         }
                     }
                     break;
-
 
                 case 0:
                     System.out.println("Exiting...");

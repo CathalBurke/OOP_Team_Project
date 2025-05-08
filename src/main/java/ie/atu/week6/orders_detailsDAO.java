@@ -3,7 +3,7 @@ package ie.atu.week6;
 import java.sql.*;
 
 public class orders_detailsDAO {
-    public void insertOrder_Details(int Order_details_id, int Product_id, int Product_quantity, double Price_per_item, int Orders){
+    public void insertOrder_Details(int Order_details_id, int Product_id, int Product_quantity, double Price_per_item, int Orders) {
         String sql = "INSERT INTO Orders_details (Order_details_id,Product_id,Product_quantity,Price_per_item,Orders) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -20,7 +20,7 @@ public class orders_detailsDAO {
         }
     }
 
-    public void showOrder_details(){
+    public void showOrder_details() {
         String sql = "SELECT * FROM Orders_details_id";
 
         try (Connection conn = DatabaseConnection.getConnection();
@@ -36,11 +36,11 @@ public class orders_detailsDAO {
         }
     }
 
-    public void deleteOrder_details(int Orders_details_id){
+    public void deleteOrder_details(int Orders_details_id) {
         String deleteOrderDetails = "DELETE FROM Orders_details WHERE Orders_details_id = ?";
 
-        try(Connection conn = DatabaseConnection.getConnection();
-            PreparedStatement stmt1 = conn.prepareStatement(deleteOrderDetails)){
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt1 = conn.prepareStatement(deleteOrderDetails)) {
             stmt1.setInt(1, Orders_details_id);
             int orderDetailsAffected = stmt1.executeUpdate();
 

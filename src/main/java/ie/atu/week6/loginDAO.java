@@ -3,7 +3,7 @@ package ie.atu.week6;
 import java.sql.*;
 
 public class loginDAO {
-    public void insertLogIn(int UserID, String First_name, String Last_name, String Email, String Username, String Password){
+    public void insertLogIn(int UserID, String First_name, String Last_name, String Email, String Username, String Password) {
         String sql = "INSERT INTO login (UserID, First_name, Last_name, Email, Username, Password) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -19,7 +19,8 @@ public class loginDAO {
             System.out.println("Error adding user to login details: " + e.getMessage());
         }
     }
-    public void showLogin(){
+
+    public void showLogin() {
         String sql = "SELECT * FROM login";
 
         try (Connection conn = DatabaseConnection.getConnection();
@@ -34,6 +35,4 @@ public class loginDAO {
             System.out.println("Error displaying login details: " + e.getMessage());
         }
     }
-
-
 }

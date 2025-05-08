@@ -1,6 +1,5 @@
 package ie.atu.week6;
 
-import ie.atu.week6.DatabaseConnection;
 import ie.atu.week6.Login;
 import org.junit.jupiter.api.Test;
 
@@ -101,7 +100,7 @@ public class DatabaseConnectionTest {
     // --- Login Tests ---
     @Test
     void testLoginConstructorStoresFields() {
-        Login login = new Login("John", "Doe", "john@doe.com", "johndoe", "pass123");
+        Login login = new Login(1, "john", "doe", "johndoe@email.com", "johnny", "01234");
         assertNotNull(login, "Login object should not be null");
         assertEquals("John", login.getFirstName(), "First name should be stored correctly");
         assertEquals("Doe", login.getLastName(), "Last name should be stored correctly");

@@ -35,36 +35,36 @@ public class ordersDAO {
         }
     }
 
-    public void deleteOrder(int Orders){
- String deleteOrders = "DELETE FROM orders WHERE Orders = ?";
+    public void deleteOrder(int Orders) {
+        String deleteOrders = "DELETE FROM orders WHERE Orders = ?";
 
- try(Connection conn = DatabaseConnection.getConnection();
-     PreparedStatement stmt1 = conn.prepareStatement(deleteOrders)){
-     stmt1.setInt(1, Orders);
-     int orderAffected = stmt1.executeUpdate();
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt1 = conn.prepareStatement(deleteOrders)) {
+            stmt1.setInt(1, Orders);
+            int orderAffected = stmt1.executeUpdate();
 
-     if (orderAffected > 0) {
-         System.out.println("Order removed from system.");
-     } else {
-         System.out.println("Order not found in the system..");
-     }
+            if (orderAffected > 0) {
+                System.out.println("Order removed from system.");
+            } else {
+                System.out.println("Order not found in the system..");
+            }
 
-     String deleteOrdersSQL = "DELETE FROM orders WHERE Orders = ?";
-     try (PreparedStatement stmt2 = conn.prepareStatement(deleteOrdersSQL)) {
-         stmt2.setInt(1, Orders);
-         int orderDeleted = stmt2.executeUpdate();
+            String deleteOrdersSQL = "DELETE FROM orders WHERE Orders = ?";
+            try (PreparedStatement stmt2 = conn.prepareStatement(deleteOrdersSQL)) {
+                stmt2.setInt(1, Orders);
+                int orderDeleted = stmt2.executeUpdate();
 
-         if (orderDeleted > 0) {
-             System.out.println("Order number: " + Orders + " successfully deleted.");
-         } else {
-             System.out.println("Order not found with number: " + Orders);
-         }
-     }
+                if (orderDeleted > 0) {
+                    System.out.println("Order number: " + Orders + " successfully deleted.");
+                } else {
+                    System.out.println("Order not found with number: " + Orders);
+                }
+            }
 
- } catch (SQLException e) {
-     System.out.println("Error deleting: " + e.getMessage());
- }
- }
-
+        } catch (SQLException e) {
+            System.out.println("Error deleting: " + e.getMessage());
+        }
     }
+
+}
 
