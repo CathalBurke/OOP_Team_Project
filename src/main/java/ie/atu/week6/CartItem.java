@@ -8,7 +8,6 @@ public class CartItem {
     private int quantity;
     private double totalPrice;
 
-    // Constructor
     public CartItem(int productId, String productName, String productDescription, double price, int quantity, double totalPrice) {
         this.productId = productId;
         this.productName = productName;
@@ -18,7 +17,6 @@ public class CartItem {
         this.totalPrice = totalPrice;
     }
 
-    // Getters
     public int getProductId() {
         return productId;
     }

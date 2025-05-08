@@ -6,14 +6,14 @@ public class Cart {
     private int productID;
     private int quantity;
 
-    public Cart(int cartID, int userID, int productID, int quantity){
+    public Cart(int cartID, int userID, int productID, int quantity) {
         this.cartID = cartID;
         this.userID = userID;
         this.productID = productID;
         this.quantity = quantity;
     }
 
-    public Cart(int userID, int productID, int quantity){
+    public Cart(int userID, int productID, int quantity) {
         this.userID = userID;
         this.productID = productID;
         this.quantity = quantity;
@@ -52,7 +52,7 @@ public class Cart {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Cart{" +
                 "cartID =" + cartID +
                 ", userID =" + userID +
