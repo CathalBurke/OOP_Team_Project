@@ -1,8 +1,6 @@
 package ie.atu.week6;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class loginDAO {
     public void insertLogIn(int UserID, String First_name, String Last_name, String Email, String Username, String Password){
@@ -21,5 +19,21 @@ public class loginDAO {
             System.out.println("Error adding user to login details: " + e.getMessage());
         }
     }
+    public void showLogin(){
+        String sql = "SELECT * FROM login";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                System.out.println(rs.getString("Email") + rs.getString("Username") + rs.getString("Password"));
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error displaying login details: " + e.getMessage());
+        }
+    }
+
 
 }

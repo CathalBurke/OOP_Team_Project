@@ -11,7 +11,9 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         productDAO productDAO = new productDAO();
         cartDAO cartDAO = new cartDAO();
-
+        orders_detailsDAO orders_detailsDAO = new orders_detailsDAO();
+        ordersDAO ordersDAO = new ordersDAO();
+        loginDAO loginDAO = new loginDAO();
         while(true){
             System.out.println("---E-commerce Platform---");
             System.out.println("1. Add a product");
